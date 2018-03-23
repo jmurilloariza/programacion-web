@@ -1,0 +1,27 @@
+<script type="text/javascript">
+	var part = ""
+	$.(getJSON('partidos.json', function(datos){
+		$('#contenido').html('')
+		$.each(datos['partidos'], function(idx, partido){
+			$('#contenido').append("<tr>" + "<td>" + partido['fecha'] + "</td><td>" + partido['equipo1'] + "</td><td>" + partido.equipo2 + "</td>"
+		})
+	})
+</script>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<table class="table table-hover">
+				 <thead>
+					 <tr>
+						 <th>Fecha</th>
+							<th>Equipo Local</th>
+							<th>Equipo Visitante</th>
+					 </tr>
+				 </thead>
+				 <tbody id="contenido">
+
+				 </tbody>
+			 </table>
+		 </div>
+	 </div>
+ </div>
