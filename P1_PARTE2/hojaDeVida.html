@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es" >
+	<!-- begin::Head -->
+	<head>
+		<meta charset="utf-8" />
+		<title>TeEnviamosLoQueSea SAS
+		</title>
+		<meta name="description" content=""/>
+        <meta name="application-name" content="">
+        <meta name="Author" content="Jeferson Manuel Murillo Ariza">        
+        <meta name="keywords" content=""/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!--begin::Base Styles -->				
+		<link rel="stylesheet" href="bootstrap.min.css">
+		<link href="css/hoja_de_vida.css" rel="stylesheet" type="text/css" />
+		<link href="" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+		<!--end::Base Styles -->		
+	</head>
+	<!-- end::Head -->
+    <!-- end::Body -->
+	<body>
+		<!-- begin:: Page -->
+		<div>
+			<!-- BEGIN: Header -->
+			<header  data-minimize-offset="200" data-minimize-mobile-offset="200" >				
+			</header>
+			<!-- END: Header -->
+			<!-- begin::Body -->
+			<div>				
+				<div>					
+					<div class="col-xl-12">
+						<div>
+							<div>
+								<form class="col-sm-offset-1 col-sm-10" id="myForm" action="javascript: registroHojaDeVida()" enctype="multipart/form-data">
+									<!--Primeara Parte-->
+									<div class="col-sm-12">
+										<center><h1 style="margin: 50px;">Registro de Hoja de vida</h1></center>
+										<div class="col-sm-12 thead-dark">
+											<h3>
+												<span>1</span>
+												<span>DATOS PERSONALES</span>
+											</h3>	
+										</div>
+										<div class="col-sm-12 bordes bordeSuperior">
+											<div class="row">
+												<div class="col-sm-4 bordeVertical">
+													<label>Primer Apellido</label>
+													<input class="form-control" type="text-form" name="apellido1" required />
+												</div>
+												<div class="col-sm-4 bordeVertical">
+													<label>Segundo Apellido</label>
+													<input class="form-control " type="text-form" name="apellido2"/>
+												</div>
+												<div class="col-sm-4">
+													<label>Nombres</label>
+													<input class="form-control " type="text-form" name="nombres" required/>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-12 bordes">
+											<div class="row">
+												<div class="col-sm-4">
+													<label>DOCUMENTO DE INDENTIFICACIÓN</label>
+													<select class="form-control" id="tipo_doc" name="tipo_doc">
+							                        	<option value="-1" selected>Seleccione</option>
+														<option value="1">Cédula de ciudadania</option>
+														<option value="3">Cédula de estranjeria</option>
+														<option value="10">Pasaporte</option>
+													</select>
+												</div>
+												<div class="col-sm-2 bordeVertical">
+													<label> No.</label>
+													<input class="form-control" type="number" name="numero" required min="9999999" max="10000000000">
+												</div>
+												<div class="col-sm-2 bordeVertical">
+													<label>GÉNERO</label>
+													<select class="form-control" id="" name="sexo">
+							                        	<option value="M" selected>M</option>
+														<option value="F">F</option>
+													</select>
+												</div>
+												<div class="col-sm-4">
+													<div class="row">
+														<div class="col-sm-6">
+															<label>NACIONALIDAD</label>
+															<select class="form-control" id="sel_nacionalidad" name="nac" onchange="habilitar('sel_nacionalidad', 'pais_nacionalidad');">
+									                        	<option value="Col">Colombiano</option>
+																<option value="Ext">Extranjero</option>
+															</select>
+														</div>
+														<div class="col-sm-6">
+															<label>PAÍS</label>
+															<select class="form-control  " id="pais_nacionalidad" name="nacionalidad" disabled>
+																<option value="Argentina">Argentina</option>
+																<option value="Bolivia">Bolivia</option>
+																<option value="Brasil">Brasil</option>
+																<option value="Chile">Chile</option>
+																<option value="Colombia" selected>Colombia</option>
+																<option value="Costa Rica">Costa Rica</option>
+																<option value="Cuba, Ecuador">Cuba, Ecuador</option>
+																<option value="El Salvador">El Salvador</option>
+																<option value="Guatemala">Guatemala</option>
+																<option value="Honduras">Honduras</option>
+																<option value="México">México</option>
+																<option value="Nicaragua">Nicaragua</option>
+																<option value="Panamá">Panamá</option>
+																<option value="Paraguay">Paraguay</option>
+																<option value="Puerto Rico">Puerto Rico</option>
+																<option value="Perú">Perú</option>
+																<option value="República Dominicana">República Dominicana</option>
+																<option value="Uruguay">Uruguay</option>
+																<option value="Venezuela">Venezuela</option>
+																<option value="Otro">Otro</option>
+															</select>
+														</div>
+													</div>								
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-12 bordes">											
+											<div class="row">
+												<div class="col-sm-4">
+													<label>LIBRETA MILITAR</label>
+													<select class="form-control" id="lbrta_mil_clase" name="lbrta_mil_clase">
+														<option value="">Seleccione una clase</option>
+														<option value="PRIMERA">Primera Clase</option>
+														<option value="SEGUNDA">Segunda Clase</option>
+													</select>
+												</div>
+												<div class="col-sm-4">
+													<label>NÚMERO</label>
+													<input class="form-control " type="number" name="num_lbrta_mil">	
+												</div>
+												<div class="col-sm-4">
+													<label>DM</label>
+													<input class="form-control " type="text" name="dm">	
+												</div>
+											</div>						
+										</div>
+										<div class="col-sm-12 bordes">
+											<div class="row">
+												<div class="col-sm-5">
+													<label class="row col-sm-12">FECHA Y LUGAR DE NACIMIENTO</label>
+													<label>FECHA </label>
+													<input class="form-control" type="date" name="fecha_nacim" required>
+													<label>PAÍS </label>
+													<select class="form-control  " id="pais_nacim" name="pais_nacim" onchange="onchangePais('pais_nacim', 'depto_nac', 'mun_nac')">
+														<option value="Argentina">Argentina</option>
+														<option value="Bolivia">Bolivia</option>
+														<option value="Brasil">Brasil</option>
+														<option value="Chile">Chile</option>
+														<option value="Colombia" selected>Colombia</option>
+														<option value="Costa Rica">Costa Rica</option>
+														<option value="Cuba, Ecuador">Cuba, Ecuador</option>
+														<option value="El Salvador">El Salvador</option>
+														<option value="Guatemala">Guatemala</option>
+														<option value="Honduras">Honduras</option>
+														<option value="México">México</option>
+														<option value="Nicaragua">Nicaragua</option>
+														<option value="Panamá">Panamá</option>
+														<option value="Paraguay">Paraguay</option>
+														<option value="Puerto Rico">Puerto Rico</option>
+														<option value="Perú">Perú</option>
+														<option value="República Dominicana">República Dominicana</option>
+														<option value="Uruguay">Uruguay</option>
+														<option value="Venezuela">Venezuela</option>
+														<option value="Otro">Otro</option>
+													</select>								
+													<label>DEPTO </label>
+													<select class="form-control" id="depto_nac" name="depto_nacim" onchange="cargarMunicipios('depto_nac', 'mun_nac')">
+														<option value="-1">Seleccione un departamento</option>
+													</select>
+													<label>MUNICIPIO </label>
+													<select class="form-control  " id="mun_nac" name="mun_nacim">
+														<option value="-1">Seleccione un municipio</option>
+													</select>
+												</div>		
+												<div class="col-sm-7 bordeVerticalLeft">
+													<div class="row col-sm-12">
+														<label>DIRECCIÓN DE CORRESPONDENCIA </label>
+														<input class="form-control" type="text" name="direccion_corresp" placeholder="Cll 3 # 20-15 Mi Barrio" required>
+
+														<label>PAÍS</label>
+														<select class="form-control" id="pais_corresp" name="pais_corresp" disabled>
+															<option value="Colombia" selected>Colombia</option>
+														</select>
+
+														<label>DEPTO </label>
+														<select class="form-control depto_ufps" id="depto_corresp" name="depto_corresp" onchange="cargarMunicipios('depto_corresp', 'mun_corresp')">
+															<option value="-1">Seleccione un departamento</option>
+														</select>								
+														
+														<label>MUNICIPIO </label>
+														<select class="form-control" id="mun_corresp" name="mun_corresp">
+															<option value="-1">Seleccione un municipio</option>
+														</select>
+														
+														<label>TEL: </label>
+														<input class="form-control" type="number" name="telefono" placeholder="5555555" required>
+																										
+														<label>EMAIL: </label>
+														<input class="form-control" type="email" name="email" placeholder="usuario@example.com" required>
+														
+													</div>
+												</div>
+											</div>						
+										</div>
+									</div>
+									<br>
+									<!--Segunda Parte-->
+									<div class="col-sm-12">
+										<div class="col-sm-12 thead-dark">
+											<h3>
+												<span>2</span>
+												<span>FORMACIÓN ACADÉMICA</span>
+											</h3>	
+										</div>
+										<div class="col-sm-12 bordes bordeSuperior">
+											<p>EDUCACIÓN BÁSICA Y MEDIA</p>
+											<p>SELECCIONE EL ÚLTIMO GRADO APROBADO ( LOS GRADOS DE 1o. A 6o. DE BACHILLERATO EQUIVALEN A LOS GRADOS 6o. A 11o. DE EDUCACIÓN BÁSICA SECUNDARIA Y MEDIA )</p>
+											<div class="col-sm-3">
+												<label>ÚLTIMO GRADO APROBADO</label>
+												<select class="form-control  " name="ultm_grd_aprob">
+													<option value="-1">Grados</option>
+													<option value="1">1. Primero</option>
+													<option value="2">2. Segundo</option>
+													<option value="3">3. Tercero</option>
+													<option value="4">4. Cuarto</option>
+													<option value="5">5. Quinto</option>
+													<option value="6">6. Sexto</option>
+													<option value="7">7. Septimo</option>
+													<option value="8">8. Octavo</option>
+													<option value="9">9. Noveno</option>
+													<option value="10">10. Decimo</option>
+													<option value="11">11. Once</option>
+												</select>
+											</div>
+											<div class="col-sm-6">
+												<label>TÍTULO OBTENIDO:</label>
+												<input class="form-control" type="text" name="titulo_obtenido" required>
+											</div>
+											<div class="col-sm-3">
+												<label>FECHA DE GRADO:</label>
+												<input class="form-control" type="date" name="fecha_anio_grado" required>
+											</div>
+										</div>										
+										<div class="col-sm-12 bordes">
+											<div class="row col-sm-12">
+												<p>EDUCACIÓN SUPERIOR (PREGRADO Y POSTGRADO)</p>
+												<p>DILIGENCIE ESTE PUNTO EN ESTRICTO ORDEN CRONOLÓGICO, EN MODALIDAD ACADÉMICA ESCRIBA:</p>
+												<div class="col-sm-3">
+													<label>TC (TÉCNICA)</label>
+													<label>ES (ESPECIALIZACIÓN)</label>
+												</div>
+												<div class="col-sm-3">
+													<label>TL (TECNOLÓGICA)</label>
+													<label>MG (MAESTRÍA O MAGISTER)</label>
+												</div>
+												<div class="col-sm-3">												
+													<label>UN (UNIVERSITARIA)</label>
+													<label>DOC (DOCTORADO O PHD)</label>
+												</div>
+												<div class="col-sm-3">
+													<label>TE (TECNOLÓGICA ESPECIALIZADA)</label>
+													<label></label>
+												</div>
+												<p>RELACIONE AL FRENTE EL NÚMERO DE LA TARJETA PROFESIONAL (SI ÉSTA HA SIDO PREVISTA EN UNA LEY).</p>
+											</div>
+										</div>
+										<div class="col-sm-12">
+											<div class="row">		
+												<div class="col-sm-12 bordes">
+						                            <div class="row">
+						                            	<div class="col-sm-12">
+							                            	<div class="row">
+							                            		<div class="col-sm-2 bordeVertical">
+								                            		<label>Modalidad </label>
+								                            		<select class="form-control  modalidad" name="modalidad">
+																		<option value="-1">Modalidad</option>
+																		<option value="1">TL</option>
+																		<option value="2">TC</option>
+																		<option value="3">TE</option>
+																		<option value="4">UN</option>
+																		<option value="5">ES</option>
+																		<option value="6">MG</option>
+																		<option value="7">DOC</option>
+																	</select>									
+								                            	</div>
+								                            	<div class="col-sm-3 bordeVertical">
+								                            		<label>Semestres Aprobados </label>
+								                            		<input type="number" class="form-control " name="semestres_aprobados" required>  
+								                            	</div>
+								                            	<div class="col-sm-2 bordeVertical">
+																	<label>Graduado </label>
+								                            		<select class="form-control  graduado" name="graduado" id="graduado">
+																		<option value="-1" >Seleccione</option>
+																		<option value="S" >SI</option>
+																		<option value="N">NO</option>
+																	</select>
+								                            	</div>
+								                            	<div class="col-sm-5">
+																	<label>No. Tarjeta Profesional</label>
+								                            		<input type="number" class="form-control " name="tarjeta_pro" id="tarjeta_pro">  
+								                            	</div>
+							                            	</div>
+							                            	<div class="row bordeSuperior bordeInferior">
+							                            		<div class="col-sm-3 bordeVertical">
+								                            		<label>Terminación </label>
+								                            		<select class="form-control  terminacion" name="mes_terminacion">
+																        <option value="-1">Mes</option>
+																        <option value="1">Enero</option>
+																        <option value="2">Febrero</option>
+																        <option value="3">Marzo</option>
+																        <option value="4">Abril</option>
+																        <option value="5">Mayo</option>
+																        <option value="6">Junio</option>
+																        <option value="7">Julio</option>
+																        <option value="8">Agosto</option>
+																        <option value="9">Septiembre</option>
+																        <option value="10">Octubre</option>
+																        <option value="11">Noviembre</option>
+																        <option value="12">Diciembre</option>
+																    </select>
+								                            	</div>
+								                            	<div class="col-sm-2 bordeVertical">
+								                            		<label>:</label>
+								                            		<input class="form-control " type="text" placeholder="AÑO " onclick="capturarAnio();" name="añio_terminacion" required>
+								                            	</div>                      	
+								                            	<div class="col-sm-7">
+																	<label>Nombre de los estudios </label>
+								                            		<input type="text" class="form-control " name="estudio" required>
+								                            	</div>
+							                            	</div>
+						                            	</div>                      	
+						                            </div>
+								                </div>
+											</div>						
+										</div>
+									</div>									
+									<!--Tercera Parte-->
+									<div class="col-sm-12">
+										<div class="col-sm-12 thead-dark">
+											<h3 class="thead-dark">
+												<span>3</span>
+												<span>EXPERIENCIA LABORAL</span>
+											</h3>
+										</div>
+										<div class="col-sm-12">												
+											<div class="row">
+												<div id="m_repeater_2" class="col-sm-12">
+								                    <div class="row" id="m_repeater_2">
+								                        <div class="col-lg-12">
+								                            <div class="row ">
+																<div class="col-sm-12 bordes">
+																	<div class="row">
+																		<div class="col-sm-6 bordeVertical bordeSuperior">
+																			<label>EMPRESA O ENTIDAD </label>
+																			<input class="form-control " type="text" name="empresa_entidad" required/>
+																		</div>
+																		<div class="col-sm-2 bordeVertical bordeSuperior">
+																			<label>TIPO </label>
+																			<select class="form-control   tipo_entidad" name="tipo">
+																				<option value="-1">Tipo</option>
+																				<option value="Publica">Publica</option>
+																				<option value="Privada">Privada</option>
+																			</select>
+																		</div>						
+																		<div class="col-sm-2 bordeVertical bordeSuperior">
+																			<label>PAÍS </label>							
+																			<select class="form-control   paises" name="pais" onchange="onchangePaisExpLab(name);">
+																				<option value="Argentina">Argentina</option>
+																				<option value="Bolivia">Bolivia</option>
+																				<option value="Brasil">Brasil</option>
+																				<option value="Chile">Chile</option>
+																				<option value="Colombia" selected>Colombia</option>
+																				<option value="Costa Rica">Costa Rica</option>
+																				<option value="Cuba, Ecuador">Cuba, Ecuador</option>
+																				<option value="El Salvador">El Salvador</option>
+																				<option value="Guatemala">Guatemala</option>
+																				<option value="Honduras">Honduras</option>
+																				<option value="México">México</option>
+																				<option value="Nicaragua">Nicaragua</option>
+																				<option value="Panamá">Panamá</option>
+																				<option value="Paraguay">Paraguay</option>
+																				<option value="Puerto Rico">Puerto Rico</option>
+																				<option value="Perú">Perú</option>
+																				<option value="República Dominicana">República Dominicana</option>
+																				<option value="Uruguay">Uruguay</option>
+																				<option value="Venezuela">Venezuela</option>
+																				<option value="Otro">Otro</option>
+																			</select>
+																		</div>
+																		<div class="col-sm-2 bordeSuperior">
+																			<label>ESTADO CONTRATO </label>		
+																			<select class="form-control   estado_contrato" name="estado" onchange="habilitarFechaRetiro(name);">
+																				<option value="-1">Seleccione</option>
+																				<option value="Actual">Actual</option>
+																				<option value="Anterior">Anterior</option>				
+																			</select>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-sm-12 bordes">
+																	<div class="row">
+																		<div class="col-sm-4 bordeVertical">
+																			<label>DEPARTAMENTO </label>
+																			<select class="form-control   depto_ufps" name="departamento" onchange="cargarMunicipiosExpLab(name)">
+																				<option value="-1">Seleccione una opcion</option>
+																			</select>
+																		</div>
+																		<div class="col-sm-4 bordeVertical">
+																			<label>MUNICIPIO </label>
+																			<select class="form-control   munici" name="municipio">
+																				<option value="-1">Seleccione un municipio</option>
+																			</select>
+																		</div>
+																		<div class="col-sm-4">
+																			<label>CORREO ELECTRÓNICO ENTIDAD</label>
+																			<input class="form-control " type="text" name="correo_entidad"/>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-sm-12 bordes">
+																	<div class="row">
+																		<div class="col-sm-4 bordeVertical">
+																			<label>TELÉFONO </label>
+																			<input class="form-control " type="text" name="telefono_entidad" required/>
+																		</div>
+																		<div class="col-sm-4 bordeVertical">
+																			<label>FECHA DE INGRESO </label>
+																			<input class="form-control " type="date" name="fecha_ingreso" required/>
+																		</div>
+																		<div class="col-sm-4">
+																			<label>FECHA DE RETIRO</label>
+																			<input class="form-control " type="date" name="fecha_retiro" disabled/>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-sm-12 bordes">
+																	<div class="row">
+																		<div class="col-sm-4 bordeVertical">
+																			<label>CARGO O CONTRATO </label>
+																			<input class="form-control " type="text" name="cargo_contratado" required/>
+																		</div>
+																		<div class="col-sm-4 bordeVertical">
+																			<label>DEPENDENCIA</label>
+																			<input class="form-control " type="text" name="dependencia"/>
+																		</div>
+																		<div class="col-sm-4">
+																			<label>DIRECCIÓN </label>
+																			<input class="form-control " type="text" name="direccion" required/>
+																		</div>
+																	</div>
+																</div>
+								                            </div>                            
+								                        </div>                 
+								                     </div>
+								                </div>
+											</div>
+										</div>
+									</div>
+									<br>			
+									<!--Cuarta Parte-->
+									<div class="col-sm-12">
+										<div class="col-sm-12 thead-dark">
+											<h3>
+												<span>4</span>
+												<span>FIRMA DEL SERVIDOR PÚBLICO O CONTRATISTA</span>
+											</h3>
+										</div>
+										<div class="col-sm-12 bordes bordeSuperior">											
+											<p>MANIFIESTO BAJO LA GRAVEDAD DEL JURAMENTO QUE ME ENCUENTRO DENTRO DE LAS CAUSALES DE INHABILIDAD E INCOMPATIBILIDAD DEL ORDEN CONSTITUCIONAL O LEGAL, PARA EJERCER CARGOS EMPLEOS PÚBLICOS O PARA CELEBRAR CONTRATOS DE PRESTACIÓN DE SERVICIOS CON LA ADMINISTRACIÓN PÚBLICA.</p>
+											<p>PARA TODOS LOS EFECTOS LEGALES, CERTIFICO QUE LOS DATOS POR MI ANOTADOS EN EL PRESENTE FORMATO ÚNICO DE HOJA DE VIDA, SON VERACES, (ARTÍCULO 5o. DE LA LEY 190/95).</p>
+											<div class="row">
+												<div class="col-sm-offset-4 col-sm-4">
+													<img src="firma.png" class="col-sm-offset-3 col-sm-6 linea margin_firma">
+												</div>												
+											</div>
+										</div>
+										
+									</div>
+									<br>
+									<!--Quinta Parte-->
+									<div class="col-sm-12">
+										<div class="col-sm-12 thead-dark">
+											<h3>
+												<span>5</span>
+												<span>OBSERVACIONES</span>
+											</h3>
+										</div>
+										<div class="col-sm-12 bordes bordeSuperior">
+											<p>CERTIFICO QUE LA INFORMACIÓN AQUÍ SUMINISTRADA HA SIDO CONSTATADA FRENTE A LOS DOCUMENTOS QUE HAN SIDO PRESENTADOS COMO SOPORTE.</p>
+											<textarea class="col-sm-12 form-control" rows="4" name="observacion"></textarea>
+										</div>
+									</div>
+									<br>
+									<!--Septima Parte-->
+									<button style="margin-bottom: 50px; margin-top: 50px;" type="submit" class="col-sm-offset-4 col-sm-4 btn m-btn--pill btn-warning">Registrar</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	</body>
+	<!-- end::Body -->
+</html>

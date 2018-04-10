@@ -1,0 +1,46 @@
+.bordes{
+	border-bottom: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+.bordeVertical{	
+	border-right: 1px solid black;	
+}
+.bordeVerticalLeft{	
+	border-left: 1px solid black;	
+}
+.bordeSuperior{	
+	border-top: 1px solid black;	
+}
+.bordeInferior{	
+	border-bottom: 1px solid black;	
+}
+.input-mostrar{
+	border: none;
+	width: 100%;
+}
+.linea{
+	border-bottom: 1px solid black; 
+}
+.table-bordered2 {
+	margin-top: 20px;
+	margin-bottom: 20px;	
+}
+.table-bordered th, .table-bordered td {
+    border: 1px solid #000000;
+    padding: 5px;
+}
+table{
+	border-collapse: collapse;
+}
+.margin_firma{
+	margin-bottom: 5px;
+}
+.thead-dark{
+	background: rgba(43, 145, 126, 1);
+	border-color: grey;
+	color: white;
+}
+img{
+	width: 100%;
+}
